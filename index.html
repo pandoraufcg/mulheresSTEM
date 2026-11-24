@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mulheres na Ciência: professoras pesquisadoras da UFCG e seus Currículos Lattes. Projeto do Grupo de Pesquisa PANDORA.">
+<title>Mulheres na Ciência | PANDORA</title>
+<style>
+:root{
+  --navy:#091d43;--blue:#12619a;--blue-dark:#0d4d7c;
+  --ink:#16273d;--muted:#52647a;--line:#d8e2ec;--bg:#f4f8fc;--card:#fff;
+  --rainbow:linear-gradient(90deg,#12559c 0 18%,#00a9a4 18% 36%,#65a73b 36% 50%,#f9bd19 50% 65%,#f05b2c 65% 82%,#8e207d 82%);
+  --r:8px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:150px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
+a{color:inherit}
+:focus-visible{outline:3px solid #f9bd19;outline-offset:2px}
+.wrap{width:min(1120px,calc(100% - 40px));margin:0 auto}
+.rainbow{height:4px;background:var(--rainbow)}
+
+
+.hero{background:#fff;border-bottom:1px solid var(--line);padding:52px 0 40px}
+.eyebrow{margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+h1{margin:0 0 14px;max-width:760px;font-size:clamp(30px,5vw,46px);line-height:1.12;letter-spacing:-.02em;color:var(--navy)}
+.hero p.lead{margin:0;max-width:700px;color:var(--muted);font-size:17px}
+.u{height:4px;width:96px;border-radius:4px;background:var(--rainbow);margin:0 0 22px}
+.social{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:44px;padding:10px 18px;border-radius:var(--r);font-size:14px;font-weight:700;text-decoration:none;border:1px solid transparent;transition:background .15s,transform .15s}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-outline{background:#fff;color:var(--navy);border-color:var(--navy)}
+.btn-outline:hover{background:var(--navy);color:#fff}
+.btn-solid{background:var(--blue);color:#fff}
+.btn-solid:hover{background:var(--blue-dark)}
+
+.controls{position:sticky;top:0;z-index:20;background:rgba(244,248,252,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:14px 0}
+.search-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.search{flex:1 1 280px;min-height:44px;padding:10px 14px;border:1px solid #b9cbdc;border-radius:var(--r);background:#fff;font:inherit;font-size:15px;color:var(--ink)}
+.search:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(18,97,154,.18)}
+.total{font-size:14px;font-weight:700;color:var(--navy);white-space:nowrap}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tab{appearance:none;cursor:pointer;min-height:38px;padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--navy);font:inherit;font-size:13.5px;font-weight:700}
+.tab:hover{border-color:var(--blue)}
+.tab[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.tab .n{margin-left:6px;opacity:.75;font-weight:400}
+
+main{padding:10px 0 60px}
+.cat{margin-top:40px}
+.cat-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:12px;margin-bottom:18px;border-bottom:3px solid var(--blue)}
+.cat-head h2{margin:0;font-size:clamp(21px,3vw,27px);color:var(--navy)}
+.cat-head .cnt{font-size:14px;font-weight:700;color:var(--blue);white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{display:flex;flex-direction:column;gap:14px;padding:18px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);border-top:3px solid var(--blue)}
+.avatar{width:96px;height:96px;border-radius:50%;display:grid;place-items:center;background:#e4eef8;border:2px solid #c3d6e8;color:var(--blue);font-size:30px;font-weight:700;letter-spacing:.03em;flex:none;align-self:center}
+.photo{align-self:center;width:96px;height:96px;border-radius:50%;object-fit:cover;border:2px solid var(--line)}
+.card h3{margin:0;font-size:16px;line-height:1.35;color:var(--navy)}
+.lattes{margin-top:auto;width:100%;min-height:46px;background:var(--blue);color:#fff;border-radius:var(--r);font-size:14.5px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 2px 0 var(--blue-dark);transition:background .15s,transform .15s}
+.lattes:hover{background:var(--blue-dark);transform:translateY(-1px)}
+.lattes:active{transform:none}
+.empty{display:none;margin:40px 0;padding:28px;text-align:center;color:var(--muted);background:#fff;border:1px dashed #b9cbdc;border-radius:var(--r)}
+
+footer{background:var(--navy);color:#cfe0f1;text-align:center;padding:26px 20px;font-size:13.5px}
+footer strong{color:#fff}
+footer .rainbow{max-width:520px;margin:0 auto 16px;border-radius:4px}
+footer a{color:#fff;font-weight:700}
+
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){
+  .wrap{width:calc(100% - 32px)}
+  .grid{grid-template-columns:1fr}
+  .hero{padding:38px 0 30px}
+    .social .btn{flex:1 1 100%}
+  .tabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:0 0 auto}
+  .cat-head{flex-direction:column;gap:2px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<section class="hero" id="topo">
+  <div class="wrap">
+    <p class="eyebrow">Grupo de Pesquisa PANDORA · UFCG · Linha GIO</p>
+    <h1>Mulheres na Ciência</h1>
+    <div class="u"></div>
+    <p class="lead">Um espaço dedicado a dar visibilidade às professoras pesquisadoras da UFCG/CSTR e a facilitar o acesso aos seus Currículos Lattes. O projeto integra as ações de Mulheres e Meninas na Ciência no Sertão Paraibano.</p>
+    <div class="social">
+      <a class="btn btn-solid" href="https://www.instagram.com/pandora.grupodepesquisa/" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Instagram do PANDORA
+      </a>
+      <a class="btn btn-outline" href="https://www.instagram.com/mulheresemstem/" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Instagram Mulheres em STEM
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="controls">
+  <div class="wrap">
+    <div class="search-row">
+      <input class="search" id="search" type="search" placeholder="Buscar pesquisadora pelo nome…" aria-label="Buscar pesquisadora pelo nome" autocomplete="off">
+      <div class="total" id="total" aria-live="polite"></div>
+    </div>
+    <div class="tabs" id="tabs" role="group" aria-label="Filtrar por curso"></div>
+  </div>
+</div>
+
+<main class="wrap" id="lista">
+  <div id="sections"></div>
+  <p class="empty" id="empty">Nenhuma pesquisadora encontrada para essa busca.</p>
+</main>
+
+<footer>
+  <div class="rainbow"></div>
+  <strong>Grupo de Pesquisa PANDORA · UFCG</strong><br>
+  Mulheres e meninas na ciência no sertão paraibano
+</footer>
+
+<script>
+const DATA = [
+ {
+  "id": "cbio",
+  "title": "Ciências Biológicas",
+  "people": [
+   {
+    "n": "Ana Célia Rodrigues Athayde",
+    "l": "http://lattes.cnpq.br/4106504741067021",
+    "p": "public/c.01.png"
+   },
+   {
+    "n": "Elzenir Pereira de Oliveira Almeida",
+    "l": "http://lattes.cnpq.br/7650445471765986",
+    "p": "public/c.02.jpeg"
+   },
+   {
+    "n": "Flavia Maria da Silva Moura",
+    "l": "http://lattes.cnpq.br/2830091689994961",
+    "p": "public/c.03.jpeg"
+   },
+   {
+    "n": "Maria das Graças Veloso Marinho de Almeida",
+    "l": "http://lattes.cnpq.br/9792589102297688",
+    "p": "public/c.04.jpeg"
+   },
+   {
+    "n": "Maria de Fátima de Araújo",
+    "l": "http://lattes.cnpq.br/2288318716418980",
+    "p": "public/c.05.jpeg"
+   },
+   {
+    "n": "Maria Kamylla e Silva Xavier",
+    "l": "http://lattes.cnpq.br/7129462502323095",
+    "p": "public/c.06.png"
+   },
+   {
+    "n": "Mércia de França Nóbrega Cavalcanti",
+    "l": "http://lattes.cnpq.br/8741325992220509",
+    "p": "public/c.07.png"
+   },
+   {
+    "n": "Merilane da Silva Calixto",
+    "l": "http://lattes.cnpq.br/0422895147542128",
+    "p": "public/c.08.png"
+   },
+   {
+    "n": "Raline Mendonça dos Anjos",
+    "l": "http://lattes.cnpq.br/6736848485375264",
+    "p": "public/c.09.jpeg"
+   },
+   {
+    "n": "Rosalia Severo de Medeiros",
+    "l": "http://lattes.cnpq.br/3466805251988779",
+    "p": "public/c.10.png"
+   },
+   {
+    "n": "Solange Maria Kerpel",
+    "l": "http://lattes.cnpq.br/8511611164950604",
+    "p": "public/c.11.png"
+   }
+  ]
+ },
+ {
+  "id": "odonto",
+  "title": "Odontologia",
+  "people": [
+   {
+    "n": "Andresa Costa Pereira",
+    "l": "http://lattes.cnpq.br/4984560166050512",
+    "p": "public/o.01.gif"
+   },
+   {
+    "n": "Bárbara Vanessa de Brito Monteiro",
+    "l": "http://lattes.cnpq.br/8314906045927707",
+    "p": "public/o.02.gif"
+   },
+   {
+    "n": "Camila Helena Machado da Costa Figueiredo",
+    "l": "http://lattes.cnpq.br/5520449990811519",
+    "p": "public/o.03.gif"
+   },
+   {
+    "n": "Cyntia Helena Pereira de Carvalho",
+    "l": "http://lattes.cnpq.br/3956936720129374",
+    "p": "public/o.04.gif"
+   },
+   {
+    "n": "Elizandra Silva da Penha",
+    "l": "http://lattes.cnpq.br/7550484144185158",
+    "p": "public/o.05.gif"
+   },
+   {
+    "n": "Faldryene de Sousa Queiroz Feitosa",
+    "l": "http://lattes.cnpq.br/0953617770656998",
+    "p": ""
+   },
+   {
+    "n": "Fátima Roneiva Alves Fonseca",
+    "l": "http://lattes.cnpq.br/6542457514850509",
+    "p": "public/o.07.gif"
+   },
+   {
+    "n": "Gymenna Maria Tenório Guênes",
+    "l": "http://lattes.cnpq.br/3721631985526703",
+    "p": ""
+   },
+   {
+    "n": "Luanna Abílio Diniz Melquíades de Medeiros",
+    "l": "http://lattes.cnpq.br/3872228170351658",
+    "p": "public/o.09.gif"
+   },
+   {
+    "n": "Luciana Ellen Dantas Costa",
+    "l": "http://lattes.cnpq.br/6409011840552085",
+    "p": ""
+   },
+   {
+    "n": "Maria Angélica Sátyro Gomes",
+    "l": "http://lattes.cnpq.br/4186467260638362",
+    "p": "public/o.11.gif"
+   },
+   {
+    "n": "Rachel de Queiroz Ferreira Rodrigues",
+    "l": "http://lattes.cnpq.br/3982816841191397",
+    "p": "public/o.12.gif"
+   },
+   {
+    "n": "Renata Andrea Salvitti de Sá Rocha",
+    "l": "http://lattes.cnpq.br/5438860678419405",
+    "p": "public/o.13.gif"
+   },
+   {
+    "n": "Rosana Araujo Rosendo Santos",
+    "l": "http://lattes.cnpq.br/4265443266983718",
+    "p": "public/o.14.gif"
+   },
+   {
+    "n": "Rosimery Cruz de Oliveira Dantas",
+    "l": "http://lattes.cnpq.br/2372898088259711",
+    "p": "public/o.15.gif"
+   },
+   {
+    "n": "Tassia Cristina de Almeida Pinto Sarmento",
+    "l": "http://lattes.cnpq.br/8780072808231578",
+    "p": ""
+   }
+  ]
+ },
+ {
+  "id": "florestal",
+  "title": "Engenharia Florestal",
+  "people": [
+   {
+    "n": "Ane Cristine Fortes da Silva",
+    "l": "http://lattes.cnpq.br/2004388665361422",
+    "p": "public/e.01.gif"
+   },
+   {
+    "n": "Bruna Rafaella Ferreira da Silva",
+    "l": "http://lattes.cnpq.br/9895857735507921",
+    "p": "public/e.02.gif"
+   },
+   {
+    "n": "Cheila Deisy Ferreira",
+    "l": "http://lattes.cnpq.br/7018848134050014",
+    "p": "public/e.03.gif"
+   },
+   {
+    "n": "Daniela Minini",
+    "l": "http://lattes.cnpq.br/9206328189040361",
+    "p": "public/e.04.gif"
+   },
+   {
+    "n": "Débora de Melo Almeida",
+    "l": "http://lattes.cnpq.br/9795066247076929",
+    "p": "public/e.05.gif"
+   },
+   {
+    "n": "Ivonete Alves Bakke",
+    "l": "http://lattes.cnpq.br/9726626914770477",
+    "p": "public/e.06.gif"
+   },
+   {
+    "n": "Jussara Silva Dantas",
+    "l": "http://lattes.cnpq.br/3581069049274613",
+    "p": "public/e.07.gif"
+   },
+   {
+    "n": "Maria do Carmo Learth Cunha",
+    "l": "http://lattes.cnpq.br/8486182792346558",
+    "p": "public/e.08.png"
+   },
+   {
+    "n": "Naelza de Araújo Wanderley",
+    "l": "http://lattes.cnpq.br/3611928212835405",
+    "p": ""
+   },
+   {
+    "n": "Patrícia Carneiro Souto",
+    "l": "http://lattes.cnpq.br/1011605644046440",
+    "p": "public/e.10.gif"
+   },
+   {
+    "n": "Valeska Regina Silva Martins Mendes",
+    "l": "http://lattes.cnpq.br/4734866646952695",
+    "p": "public/e.11.gif"
+   },
+   {
+    "n": "Viviane Farias Silva",
+    "l": "http://lattes.cnpq.br/5011520274887172",
+    "p": "public/e.12.gif"
+   }
+  ]
+ },
+ {
+  "id": "medvet",
+  "title": "Medicina Veterinária",
+  "people": [
+   {
+    "n": "Annielle Regina da Fonseca Fernandes",
+    "l": "http://lattes.cnpq.br/3866583635614600",
+    "p": "public/v.01.gif"
+   },
+   {
+    "n": "Carolina de Sousa Américo Batista Santos",
+    "l": "http://lattes.cnpq.br/9620339529667823",
+    "p": "public/v.02.gif"
+   },
+   {
+    "n": "Marcia Almeida de Melo",
+    "l": "http://lattes.cnpq.br/1896514405880465",
+    "p": "public/v.03.gif"
+   },
+   {
+    "n": "Maurina Lima Porto",
+    "l": "http://lattes.cnpq.br/8138764938011795",
+    "p": "public/v.04.gif"
+   },
+   {
+    "n": "Melania Loureiro Marinho",
+    "l": "http://lattes.cnpq.br/6865052126996249",
+    "p": ""
+   },
+   {
+    "n": "Nara Geanne de Araújo Medeiros",
+    "l": "http://lattes.cnpq.br/2526937660242594",
+    "p": "public/v.06.gif"
+   },
+   {
+    "n": "Patrícia Araújo Brandão",
+    "l": "http://lattes.cnpq.br/0255123321962715",
+    "p": "public/v.07.gif"
+   },
+   {
+    "n": "Roberta Cristina da Rocha e Silva",
+    "l": "http://lattes.cnpq.br/6703780392445673",
+    "p": "public/v.08.gif"
+   },
+   {
+    "n": "Rosane Maria Trindade de Medeiros",
+    "l": "http://lattes.cnpq.br/8398838465038683",
+    "p": ""
+   },
+   {
+    "n": "Rosangela Maria Nunes da Silva",
+    "l": "http://lattes.cnpq.br/3365153132480921",
+    "p": "public/v.10.gif"
+   },
+   {
+    "n": "Sônia Correia Assis da Nóbrega",
+    "l": "http://lattes.cnpq.br/2527125964666508",
+    "p": ""
+   },
+   {
+    "n": "Sonia Maria de Lima",
+    "l": "http://lattes.cnpq.br/8124565257793969",
+    "p": "public/v.12.gif"
+   },
+   {
+    "n": "Tatiane Rodrigues da Silva",
+    "l": "http://lattes.cnpq.br/5099195611212580",
+    "p": "public/v.13.gif"
+   },
+   {
+    "n": "Verônica Medeiros Trindade Nobre",
+    "l": "http://lattes.cnpq.br/8391398398844661",
+    "p": "public/v.14.gif"
+   },
+   {
+    "n": "Vitória Viviane Ferreira de Aquino",
+    "l": "http://lattes.cnpq.br/6844885113616038",
+    "p": "public/v.15.gif"
+   }
+  ]
+ }
+];
+
+const norm = s => String(s).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const plural = (n, a, b) => n + " " + (n === 1 ? a : b);
+
+const tabsEl = document.getElementById("tabs");
+const sectionsEl = document.getElementById("sections");
+const totalEl = document.getElementById("total");
+const emptyEl = document.getElementById("empty");
+const searchEl = document.getElementById("search");
+
+let active = "todas";
+let term = "";
+
+const SKIP = new Set(["de","da","do","das","dos","e"]);
+function initials(name) {
+  const w = name.split(/\s+/).filter(x => x && !SKIP.has(x.toLowerCase()));
+  if (!w.length) return "?";
+  return (w[0][0] + (w.length > 1 ? w[w.length - 1][0] : "")).toUpperCase();
+}
+
+function card(p) {
+  const top = p.p
+    ? `<img class="photo" src="${esc(p.p)}" alt="Foto de ${esc(p.n)}" loading="lazy">`
+    : `<div class="avatar" aria-hidden="true">${esc(initials(p.n))}</div>`;
+  return `<article class="card">
+    ${top}
+    <h3>${esc(p.n)}</h3>
+    <a class="lattes" href="${esc(p.l)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir Currículo Lattes de ${esc(p.n)}">Currículo Lattes <span aria-hidden="true">↗</span></a>
+  </article>`;
+}
+
+function render() {
+  const t = norm(term);
+  const result = DATA.map(c => ({...c, shown: c.people.filter(p => !t || norm(p.n).includes(t))}));
+
+  const grand = result.reduce((s, c) => s + c.shown.length, 0);
+
+  tabsEl.innerHTML =
+    `<button type="button" class="tab" data-tab="todas" aria-pressed="${active === "todas"}">Todas<span class="n">${grand}</span></button>` +
+    result.map(c => `<button type="button" class="tab" data-tab="${c.id}" aria-pressed="${active === c.id}">${esc(c.title)}<span class="n">${c.shown.length}</span></button>`).join("");
+
+  const visible = result.filter(c => (active === "todas" || c.id === active) && c.shown.length);
+  const count = visible.reduce((s, c) => s + c.shown.length, 0);
+
+  sectionsEl.innerHTML = visible.map(c => `
+    <section class="cat" id="cat-${c.id}" aria-labelledby="h-${c.id}">
+      <div class="cat-head"><h2 id="h-${c.id}">${esc(c.title)}</h2><span class="cnt">${plural(c.shown.length, "pesquisadora", "pesquisadoras")}</span></div>
+      <div class="grid">${c.shown.map(p => card(p)).join("")}</div>
+    </section>`).join("");
+
+  totalEl.textContent = plural(count, "pesquisadora", "pesquisadoras") + (t || active !== "todas" ? " exibida" + (count === 1 ? "" : "s") : "");
+  emptyEl.style.display = count ? "none" : "block";
+}
+
+tabsEl.addEventListener("click", e => {
+  const b = e.target.closest("[data-tab]");
+  if (!b) return;
+  active = b.dataset.tab;
+  render();
+});
+searchEl.addEventListener("input", e => { term = e.target.value; render(); });
+
+render();
+</script>
+</body>
+</html>
